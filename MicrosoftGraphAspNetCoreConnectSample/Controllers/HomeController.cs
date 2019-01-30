@@ -45,6 +45,7 @@ namespace MicrosoftGraphAspNetCoreConnectSample.Controllers
                 ViewData["Response"] = await GraphService.GetUserJson(graphClient, email, HttpContext);
                 ViewData["Drives"] = await GraphService.GetDrives(graphClient, email, HttpContext);
                 ViewData["Picture"] = await GraphService.GetPictureBase64(graphClient, email, HttpContext);
+                ViewData["User"] = await GraphService.GetUser(graphClient, email, HttpContext);
             }
 
             return View();

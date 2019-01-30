@@ -1,0 +1,26 @@
+﻿@model MicrosoftGraphAspNetCoreConnectSample.ViewModels.UserViewModel
+
+<div class="col-md-3">
+    <img src="@Model.Picture" style="border-radius: 50%; height: 200px; width: 200px; margin: 20px;" />
+</div>
+<div class="col-md-9">
+    <div><label asp-for="User.DisplayName"></label> |       @Model.User.DisplayName</div>
+    <div><label asp-for="User.BusinessPhones"></label> |    @Model.User.BusinessPhones.FirstOrDefault()</div>
+    <div><label asp-for="User.JobTitle"></label> |          @Model.User.JobTitle</div>
+    <div><label asp-for="User.OfficeLocation"></label> |    @Model.User.OfficeLocation</div>
+    <div><label asp-for="User.DisplayName"></label> |       @Model.User.DisplayName</div>
+    <div>
+        <div>Contacts:</div>
+        <dl>
+            @{
+                if (Model.User.Contacts != null)
+                {
+                    foreach (Microsoft.Graph.Contact c in Model.User.Contacts)
+                    {
+                        <dd>@c.DisplayName??"empty"</dd>
+                    }
+                }
+            }
+        </dl>
+    </div>
+</div>

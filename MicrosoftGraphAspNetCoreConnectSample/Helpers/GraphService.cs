@@ -48,6 +48,19 @@ namespace MicrosoftGraphAspNetCoreConnectSample.Helpers
             }
         }
 
+        internal async static Task<User> GetUser(GraphServiceClient graphClient, string email, HttpContext httpContext)
+        {
+            if (email == null) return new User();
+            try { 
+                var user = await graphClient.Users[email].Request().GetAsync();
+                return user;
+            }
+            catch (ServiceException)
+            { 
+                return null;
+            }
+        }
+
         // Load user's profile in formatted JSON.
         public static async Task<string> GetUserJson(GraphServiceClient graphClient, string email, HttpContext httpContext)
         {

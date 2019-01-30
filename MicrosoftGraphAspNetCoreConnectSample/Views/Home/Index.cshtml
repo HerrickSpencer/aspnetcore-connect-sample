@@ -30,26 +30,32 @@
     </form>
     <br />
     <div class="row">
-        <div class="col-md-3">
-            <img src="@ViewData["Picture"]" style="border-radius: 50%; height: 200px; width: 200px; margin: 20px;" />
-        </div>
-        <div class="col-md-9">
-            <pre>@ViewData["Response"]</pre>
-        </div>
+        @{
+            var usermodel = new UserViewModel((User)ViewData["User"], (string)ViewData["Picture"]);
+            <partial name="_UserView" model='usermodel' />
+        }
+        @*<div class="row">
+                <div class="col-md-3">
+                    <img src="@ViewData["Picture"]" style="border-radius: 50%; height: 200px; width: 200px; margin: 20px;" />
+                </div>
+                <div class="col-md-9">
+                    <pre>@ViewData["Response"]</pre>
+                </div>
+            </div>*@
     </div>
     <div class="row">
         <div>
             <pre>@ViewData["Drives"]</pre>
         </div>
     </div>
-        <br />
-        <h4>Send an email</h4>
-        <form asp-controller="Home" asp-action="SendEmail" method="post">
+    <br />
+    <h4>Send an email</h4>
+    <form asp-controller="Home" asp-action="SendEmail" method="post">
 
-            <div class="form-group">
-                <label for="recipients">Recipient email addresses, separated by a semicolon</label>
-                <input type="text" name="recipients" value="@ViewData["Email"]" style="width: 300px;" />
-                <button type="submit">Send email</button>
-            </div>
-        </form>
-        }
+        <div class="form-group">
+            <label for="recipients">Recipient email addresses, separated by a semicolon</label>
+            <input type="text" name="recipients" value="@ViewData["Email"]" style="width: 300px;" />
+            <button type="submit">Send email</button>
+        </div>
+    </form>
+}
