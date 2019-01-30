@@ -37,15 +37,19 @@
             <pre>@ViewData["Response"]</pre>
         </div>
     </div>
-
-    <br />
-    <h4>Send an email</h4>
-    <form asp-controller="Home" asp-action="SendEmail" method="post">
-
-        <div class="form-group">
-            <label for="recipients">Recipient email addresses, separated by a semicolon</label>
-            <input type="text" name="recipients" value="@ViewData["Email"]" style="width: 300px;" />
-            <button type="submit">Send email</button>
+    <div class="row">
+        <div>
+            <pre>@ViewData["Drives"]</pre>
         </div>
-    </form>
-}
+    </div>
+        <br />
+        <h4>Send an email</h4>
+        <form asp-controller="Home" asp-action="SendEmail" method="post">
+
+            <div class="form-group">
+                <label for="recipients">Recipient email addresses, separated by a semicolon</label>
+                <input type="text" name="recipients" value="@ViewData["Email"]" style="width: 300px;" />
+                <button type="submit">Send email</button>
+            </div>
+        </form>
+        }
