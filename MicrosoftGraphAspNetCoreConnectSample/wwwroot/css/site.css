@@ -35,3 +35,29 @@ textarea {
         display: none;
     }
 }
+
+/* Tooltip container */
+.tooltipHerrick {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltipHerrick .tooltiptextHerrick {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 999;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipHerrick:hover .tooltiptextHerrick {
+    visibility: visible;
+}
