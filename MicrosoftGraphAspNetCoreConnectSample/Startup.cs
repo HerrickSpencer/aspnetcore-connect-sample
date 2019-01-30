@@ -26,6 +26,8 @@ namespace MicrosoftGraphAspNetCoreConnectSample
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Configuration["AzureAd:ClientId"] = Configuration["AzureAdSecrets:ClientId"];
+            Configuration["AzureAd:ClientSecret"] = Configuration["AzureAdSecrets:ClientSecret"];
         }
 
         public IConfiguration Configuration { get; }
